@@ -104,6 +104,17 @@ type MapEventCallbacks = {
   onCenterChanged?: (value: naver.maps.Coord) => void;
   onCenterPointChanged?: (value: naver.maps.Point) => void;
   onZoomChanged?: (value: number) => void;
+  onInit?: (
+    initStatus: {
+      isFailed: boolean;
+      listOfFailed: string[];
+      listOfTileFailed: string[];
+      mapTypes: string[];
+      tileTypes: string[];
+    },
+    map: naver.maps.Map
+  ) => void;
+  onIdle?: (eventInfo: any, map: naver.maps.Map) => void;
 };
 
 const basicMapOptionKeys: Array<keyof MapOptions> = [
